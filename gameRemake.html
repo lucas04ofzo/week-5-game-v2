@@ -6,31 +6,57 @@
 <body>
 <script>
 
-	var number = prompt("Welcome to SSMGv2, player! These are the rules: Try to keep your number in between 1 and 20. If after 3 choices your number is in between 1 and 20, you've won. Good luck! Side note: - is retracting, / is dividing, * is multiplying. Choose any number above 0 to start with:");
+	var start = prompt ("Welcome to SSMGv2, player!\nThese are the rules: You'll be given 3 choices. If after those choices your number is in between 1 and 20, you've won. Good luck!\nChoose any number above 0 to start with:");
 
 	function vraag1(number1,number2){
-		number = prompt("");
+		var number = prompt("Your number is " + start + ". Choice 1: " + start + " multiplied by " + number1 + " or " + number2 + "?");
+		if(number == number1){
+			start = start * number1
+		}else if(number == number2){
+			start = start * number2
+		}
 	}
 	function vraag2(number1,number2){
-		number = prompt("");
+		var number = prompt("Your number is " + start + ". Choice 2: " + start + " divided by " + number1 + " or " + number2 + "?");
+		if(number == number1){
+			start = start / number1
+		}else if(number == number2){
+			start = start / number2
+		}
 	}
 	function vraag3(number1,number2){
-		number = prompt("");
+		var number = prompt("Your number is " + start + ". Choice 3: " + start + " minus " + number1 + " or " + number2 + "?");
+		if(number == number1){
+			start = start - number1
+		}else if(number == number2){
+			start = start - number2
+		}
 	}
 
-	if(number<0){
+	if(start < 0){
 		alert("Please pick a number above 0.");
 		location.reload();
+	}else if(start > 99){
+		vraag1(2,3);
+		vraag2(4,5);
+		vraag3(35,45);
+	}else{
+		vraag1(4,5);
+		vraag2(2,3);
+		vraag3(15,25);
 	}
-	else if(number>99){
-		vraag1(4,20);
-		vraag2(5,25);
-		vraag3(6,30);
+	
+	if(start > 0 && start < 21){
+		alert("Your number is " + start + ", Which is in between 1 and 20. Congratulations, you've won! :D");
+	}else{
+		alert("Your number is " + start + ", Which is not in between 1 and 20. You lost. :(");
 	}
-	else{
-		vraag1(1,5);
-		vraag2(2,10);
-		vraag3(3,15);
+	
+	var reload = window.confirm("Would you like to play again?");
+	if(reload == true){
+		location.reload();
+	}else if(reload == false){
+		alert("Thank you for playing SSMGv2. Bye!")
 	}
 
 </script>
