@@ -8,42 +8,22 @@
 
 	var start = prompt ("Welcome to SSMGv2, player!\nThese are the rules: You'll be given 3 choices. If after those choices your number is in between 1 and 20, you've won. Good luck!\nChoose any number above 0 to start with:");
 
-	function vraag1(number1,number2){
-		var number = prompt("Your number is " + start + ". Choice 1: " + start + " multiplied by " + number1 + " or " + number2 + "?");
-		if(number == number1){
-			start = start * number1
-		}else if(number == number2){
-			start = start * number2
-		}
-	}
-	function vraag2(number1,number2){
-		var number = prompt("Your number is " + start + ". Choice 2: " + start + " divided by " + number1 + " or " + number2 + "?");
+	function vraag(number1,number2,choice){
+		var number = prompt("Your number is " + start + ". Choice " + choice + ":\n" + start + " divided by " + number1 + " or " + number2 + "?");
 		if(number == number1){
 			start = start / number1
 		}else if(number == number2){
 			start = start / number2
 		}
 	}
-	function vraag3(number1,number2){
-		var number = prompt("Your number is " + start + ". Choice 3: " + start + " minus " + number1 + " or " + number2 + "?");
-		if(number == number1){
-			start = start - number1
-		}else if(number == number2){
-			start = start - number2
-		}
-	}
 
 	if(start < 0){
 		alert("Please pick a number above 0.");
 		location.reload();
-	}else if(start > 99){
-		vraag1(2,3);
-		vraag2(4,5);
-		vraag3(35,45);
 	}else{
-		vraag1(4,5);
-		vraag2(2,3);
-		vraag3(15,25);
+		vraag(4,5,1);
+		vraag(2,3,2);
+		vraag(15,25,3);
 	}
 	
 	if(start > 0 && start < 21){
